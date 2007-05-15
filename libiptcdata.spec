@@ -3,7 +3,7 @@
 
 Name: libiptcdata
 Summary: IPTC tag library
-Version: 1.0.1
+Version: 1.0.2
 Release: %mkrel 1
 License: LGPL
 Group: System/Libraries
