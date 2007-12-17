@@ -8,7 +8,6 @@ Release: %mkrel 1
 License: LGPL
 Group: System/Libraries
 Source: http://prdownloads.sourceforge.net/libiptcdata/%{name}-%{version}.tar.bz2
-BuildRoot: %{_tmppath}/%{name}-%{version}-root
 BuildRequires: python-devel
 URL: http://sourceforge.net/projects/libiptcdata/
 
