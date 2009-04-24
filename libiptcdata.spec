@@ -1,13 +1,14 @@
 %define major 0
 %define libname %mklibname iptcdata %major
+%define develname %mklibname -d iptcdata
 
 Name: libiptcdata
 Summary: IPTC tag library
-Version: 1.0.2
-Release: %mkrel 4
-License: LGPL
+Version: 1.0.3
+Release: %mkrel 1
+License: LGPLv2+
 Group: System/Libraries
-Source: http://prdownloads.sourceforge.net/libiptcdata/%{name}-%{version}.tar.bz2
+Source: http://prdownloads.sourceforge.net/libiptcdata/%{name}-%{version}.tar.gz
 BuildRoot: %{_tmppath}/%{name}-%{version}-root
 BuildRequires: python-devel
 URL: http://sourceforge.net/projects/libiptcdata/
@@ -22,21 +23,29 @@ Group: System/Libraries
 %description utils
 libiptcdata is a library for parsing, editing, and saving IPTC data.
 
+%package i18n
+Summary: Translations of the IPTC tag library
+Group: System/Libraries
+
+%description i18n
+libiptcdata is a library for parsing, editing, and saving IPTC data.
 
 %package -n %libname
 Summary: IPTC tag library
 Group: System/Libraries
+Requires: %name-i18n >= %version
 
 %description -n %libname
 libiptcdata is a library for parsing, editing, and saving IPTC data.
 
-%package -n %libname-devel
+%package -n %develname
 Summary: The files needed for libiptcdata application development
 Group: Development/C
 Requires: %{libname} = %{version}
 Provides: %name-devel = %version-%release
+Obsoletes: %mklibname -d %name 0
 
-%description -n %libname-devel
+%description -n %develname
 This package contains the libraries and include files
 that you can use to develop libiptcdata applications.
 
@@ -58,6 +67,8 @@ python-iptcdata is a library for parsing, editing, and saving IPTC data.
 rm -rf $RPM_BUILD_ROOT
 %makeinstall
 %find_lang %name
+%find_lang iptc
+
 
 rm -f %buildroot%py_platsitedir/*a
 
@@ -72,15 +83,18 @@ rm -rf $RPM_BUILD_ROOT
 %postun -n %libname -p /sbin/ldconfig
 %endif
 
-%files utils
+%files utils -f iptc.lang
 %defattr(-,root,root)
 %doc AUTHORS COPYING ChangeLog NEWS README INSTALL TODO
 %{_bindir}/*
 
+%files i18n -f %name.lang
+
+
 %files -n %libname
 %{_libdir}/lib*.so.%{major}*
 
-%files -n %libname-devel
+%files -n %develname
 %defattr(-,root,root)
 %{_libdir}/lib*.so
 %{_libdir}/*a
