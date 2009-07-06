@@ -4,8 +4,8 @@
 
 Name: libiptcdata
 Summary: IPTC tag library
-Version: 1.0.3
-Release: %mkrel 2
+Version: 1.0.4
+Release: %mkrel 1
 License: LGPLv2+
 Group: System/Libraries
 Source: http://prdownloads.sourceforge.net/libiptcdata/%{name}-%{version}.tar.gz
