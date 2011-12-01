@@ -64,7 +64,7 @@ python-iptcdata is a library for parsing, editing, and saving IPTC data.
 %make
 
 %install
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 %makeinstall
 %find_lang %name
 %find_lang iptc
@@ -73,7 +73,7 @@ rm -rf $RPM_BUILD_ROOT
 rm -f %buildroot%py_platsitedir/*a
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %if %mdkversion < 200900
 %post -n %libname -p /sbin/ldconfig
