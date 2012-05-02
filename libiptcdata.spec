@@ -75,14 +75,6 @@ rm -f %buildroot%py_platsitedir/*a
 %clean
 rm -rf %{buildroot}
 
-%if %mdkversion < 200900
-%post -n %libname -p /sbin/ldconfig
-%endif
-
-%if %mdkversion < 200900
-%postun -n %libname -p /sbin/ldconfig
-%endif
-
 %files utils -f iptc.lang
 %defattr(-,root,root)
 %doc AUTHORS COPYING ChangeLog NEWS README INSTALL TODO
@@ -97,7 +89,6 @@ rm -rf %{buildroot}
 %files -n %develname
 %defattr(-,root,root)
 %{_libdir}/lib*.so
-%{_libdir}/*a
 %{_libdir}/pkgconfig/*.pc
 %{_includedir}/libiptcdata
 %{_datadir}/gtk-doc/html/libiptcdata
