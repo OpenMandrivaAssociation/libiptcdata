@@ -5,11 +5,10 @@
 Name: libiptcdata
 Summary: IPTC tag library
 Version: 1.0.4
-Release: %mkrel 4
+Release: 6
 License: LGPLv2+
 Group: System/Libraries
 Source: http://prdownloads.sourceforge.net/libiptcdata/%{name}-%{version}.tar.gz
-BuildRoot: %{_tmppath}/%{name}-%{version}-root
 BuildRequires: python-devel
 URL: http://sourceforge.net/projects/libiptcdata/
 
@@ -64,19 +63,13 @@ python-iptcdata is a library for parsing, editing, and saving IPTC data.
 %make
 
 %install
-rm -rf %{buildroot}
 %makeinstall
 %find_lang %name
 %find_lang iptc
 
-
 rm -f %buildroot%py_platsitedir/*a
 
-%clean
-rm -rf %{buildroot}
-
 %files utils -f iptc.lang
-%defattr(-,root,root)
 %doc AUTHORS COPYING ChangeLog NEWS README INSTALL TODO
 %{_bindir}/*
 
@@ -87,14 +80,70 @@ rm -rf %{buildroot}
 %{_libdir}/lib*.so.%{major}*
 
 %files -n %develname
-%defattr(-,root,root)
 %{_libdir}/lib*.so
 %{_libdir}/pkgconfig/*.pc
 %{_includedir}/libiptcdata
 %{_datadir}/gtk-doc/html/libiptcdata
 
 %files -n python-iptcdata
-%defattr(-,root,root)
 %py_platsitedir/iptcdata.*
 
+
+
+
+%changelog
+* Fri Apr 29 2011 Oden Eriksson <oeriksson@mandriva.com> 1.0.4-3mdv2011.0
++ Revision: 660264
+- mass rebuild
+
+* Tue Mar 16 2010 Oden Eriksson <oeriksson@mandriva.com> 1.0.4-2mdv2011.0
++ Revision: 520872
+- rebuilt for 2010.1
+
+* Mon Jul 06 2009 Götz Waschk <waschk@mandriva.org> 1.0.4-1mdv2010.0
++ Revision: 392693
+- update to new version 1.0.4
+
+* Mon May 04 2009 Götz Waschk <waschk@mandriva.org> 1.0.3-2mdv2010.0
++ Revision: 371556
+- fix obsoletes
+
+* Fri Apr 24 2009 Götz Waschk <waschk@mandriva.org> 1.0.3-1mdv2010.0
++ Revision: 368978
+- new version
+- add -i18n package
+- rename devel package
+
+* Tue Jun 17 2008 Thierry Vignaud <tv@mandriva.org> 1.0.2-4mdv2009.0
++ Revision: 222889
+- rebuild
+- rebuild
+- rebuild
+- kill re-definition of %%buildroot on Pixel's request
+
+  + Pixel <pixel@mandriva.com>
+    - do not call ldconfig in %%post/%%postun, it is now handled by filetriggers
+
+  + Olivier Blin <oblin@mandriva.com>
+    - restore BuildRoot
+
+* Tue May 15 2007 Götz Waschk <waschk@mandriva.org> 1.0.2-1mdv2008.0
++ Revision: 26953
+- new version
+
+
+* Wed Mar 21 2007 Götz Waschk <waschk@mandriva.org> 1.0.1-1mdv2007.1
++ Revision: 147184
+- new version
+- add python bindings
+
+* Sat Oct 14 2006 Götz Waschk <waschk@mandriva.org> 0.2.1-1mdv2006.0
++ Revision: 64591
+- Import libiptcdata
+
+* Sat Oct 14 2006 Götz Waschk <waschk@mandriva.org> 0.2.1-1mdv2007.1
+- initial mdv package
+
+* Mon Feb 28 2005 David Moore <dcm@acm.org>
+- Initial version
 
