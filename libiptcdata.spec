@@ -1,6 +1,7 @@
 %define major 0
 %define libname %mklibname iptcdata %major
 %define develname %mklibname -d iptcdata
+%define _disable_ld_no_undefined 1
 
 Name: libiptcdata
 Summary: IPTC tag library
