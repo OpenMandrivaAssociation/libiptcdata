@@ -61,8 +61,8 @@ python-iptcdata is a library for parsing, editing, and saving IPTC data.
 %setup -q
 
 %build
-%configure2_5x \
-	--disable-static \
+export PYTHON=%__python2
+%configure \
 	--enable-python
 %make
 
@@ -87,5 +87,5 @@ python-iptcdata is a library for parsing, editing, and saving IPTC data.
 %{_datadir}/gtk-doc/html/libiptcdata
 
 %files -n python-iptcdata
-%py_platsitedir/iptcdata.*
+%py2_platsitedir/iptcdata.*
 
