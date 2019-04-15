@@ -8,12 +8,12 @@
 Summary:	IPTC tag library
 Name:		libiptcdata
 Version:	1.0.4
-Release:	16
+Release:	17
 License:	LGPLv2+
 Group:		System/Libraries
 Url:		http://sourceforge.net/projects/libiptcdata/
 Source0:	http://prdownloads.sourceforge.net/libiptcdata/%{name}-%{version}.tar.gz
-BuildRequires:	pkgconfig(python)
+BuildRequires:	pkgconfig(python2)
 
 %description
 libiptcdata is a library for parsing, editing, and saving IPTC data.
