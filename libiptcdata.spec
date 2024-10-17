@@ -11,7 +11,7 @@ Version:	1.0.4
 Release:	18
 License:	LGPLv2+
 Group:		System/Libraries
-Url:		http://sourceforge.net/projects/libiptcdata/
+Url:		https://sourceforge.net/projects/libiptcdata/
 Source0:	http://prdownloads.sourceforge.net/libiptcdata/%{name}-%{version}.tar.gz
 BuildRequires:	pkgconfig(python2)
 
