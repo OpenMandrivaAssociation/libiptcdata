@@ -13,6 +13,11 @@ License:	LGPLv2+
 Group:		System/Libraries
 Url:		https://sourceforge.net/projects/libiptcdata/
 Source0:	http://prdownloads.sourceforge.net/libiptcdata/%{name}-%{version}.tar.gz
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	pkgconfig(python2)
 
 %description
